@@ -1,0 +1,7 @@
+.checklist{
+    list-style: url("../Images/square.png");
+}
+
+ul .checked{
+    list-style: url("../Images/checked-square.png");
+}
