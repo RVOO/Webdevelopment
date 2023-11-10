@@ -1,0 +1,29 @@
+.Month{
+    background-color: rgb(170, 170, 200);
+    font-size: 18px;
+    text-align: center;
+}
+ td:last-child, td:first-child{
+    background-color: rgb(255, 220, 220)
+}
+.Day{
+    background-color: rgb(35,37,70);
+    color: rgb(200,190,240);
+}
+table{
+    border: black solid;
+    border-collapse: collapse;
+}
+tbody td.Other-month{
+    color: dimgray;
+    background-color: grey;
+}
+.Vrije-dag{
+    background-color: rgb(250, 120, 120);
+}
+tbody td{
+    border: 1px dotted;
+}
+thead th{
+    border: 1px dotted #066FD0;
+}

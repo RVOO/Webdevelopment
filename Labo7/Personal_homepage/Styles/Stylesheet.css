@@ -1,0 +1,135 @@
+body{
+    background-color: deepskyblue;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 10px 0 10px;
+    border-radius: 180px 180px 90px 90px;
+    margin: 0;
+    color: white;
+}
+h3{
+    text-align: center;
+    text-decoration-style: wavy;
+}
+a{
+    color: red;
+}
+p{
+    text-align: center;
+}
+
+#Header h1{
+    text-align: center;
+    text-decoration: underline;
+    background-color: dodgerblue;
+    border-collapse: collapse;
+    border-radius: 30px 30px 0 0;
+    margin: 0;
+    border: 0;
+    padding: 20px 0 20px 0;
+    color: Black;
+}
+
+#Nav{
+    background-color: darkblue;
+    margin-top: 0;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+#Nav ul{
+    margin-top: 0;
+}
+#Nav li{
+    display: inline;
+    text-align: center;
+    word-spacing: 130px;
+    margin-top:0;
+}
+#Nav a{
+    color: greenyellow;
+    text-decoration: none;
+}
+
+#Personal-info{
+    background-color: #2B2D42;
+    border-width: 10px 900px 20px 10px;
+    border-style: solid;
+    border-color: black;
+    padding-right: 0;
+    margin-right: 0;
+    padding-left: 10px;
+    margin-left: 0;
+    padding-bottom: 10px;
+    border-radius: 30px 30px 30px 30px;
+}
+#Personal-info h3{
+    text-align: left;
+}
+#Personal-info img{
+    padding-left: 4px;
+}
+
+#Hobbies{
+    position: absolute;
+    left: 630px;
+    top: 150px;
+    background-color: darkslateblue;
+    border-width: 4px 4px 0 20px;
+    border-color: black;
+    border-style: solid;
+    padding-bottom: 50px;
+    border-radius: 30px 30px 0 0;
+}
+
+#Vrienden{
+    position: absolute;
+    left: 630px;
+    top: 450px;
+    text-align: center;
+    background-color: darkslateblue;
+    border-width: 1px 4px 20px 20px;
+    border-style: solid;
+    border-color: black;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px 38px 20px 20px;
+    border-radius: 0 0 25px 25px;
+}
+
+
+table{
+    border: solid black;
+    border-collapse: collapse;
+}
+td{
+    padding: 5px;
+    border: black solid 1px;
+}
+.Firstname{
+    border-right: dashed 2px #2B2D42;
+}
+.Country{
+    border-left: dashed 2px #2B2D42;
+}
+
+#Likes{
+    border-width: 0 10px 0 10px;
+    border-style: solid;
+    border-collapse: collapse;
+    border-color: black;
+    background-color: cornflowerblue;
+    border-radius: 30px;
+    color: black;
+}
+#Likes ul li img{
+    margin-bottom: 20px;
+}
+.Right{
+    position: absolute;
+    Left: 850px;
+}
+.Left{
+    position: absolute;
+    left: 100px;
+}
