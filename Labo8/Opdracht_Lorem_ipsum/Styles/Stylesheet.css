@@ -1,0 +1,8 @@
+
+section{
+    box-sizing: border-box;
+    width: 50%;
+    border: black solid 1px;
+    padding: 10px;
+    float: left;
+}

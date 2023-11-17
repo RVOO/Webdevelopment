@@ -1,0 +1,16 @@
+
+div p{
+    box-sizing: border-box;
+    border: black solid 1px;
+    width: 48.652%;
+    padding: 10px;
+    float: left;
+    margin: 10px;
+}
+
+
+body div{
+    margin: 10px;
+
+}
+
