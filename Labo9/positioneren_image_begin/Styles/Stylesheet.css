@@ -1,0 +1,19 @@
+body{
+    font-size: 1.25em;
+}
+
+main article:nth-of-type(even) p img{
+    float: right;
+    margin-left: 10px;
+}
+main article:nth-of-type(odd) p img{
+    float: left;
+    margin-right: 10px;
+}
+
+article{
+    Display: inline-block;
+    border: black solid 2px;
+    margin: 10px;
+    padding: 3px;
+}
