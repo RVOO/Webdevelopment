@@ -12,12 +12,14 @@ header{
     height: 200px;
     background-image: url("../images/bgsky3.jpg");
     text-align: center;
+    font-weight: bold;
 }
-#Top:first-child{
+#Top p:first-of-type{
     color: darkblue;
     font-size: 300%;
+    font-style: italic;
 }
-#Top:nth-of-type(2){
+#Top p:last-of-type{
     color: darkblue;
     font-size: 240%;
 }
@@ -78,6 +80,8 @@ header{
 }
 #Introduction span{
     color: blue;
+    font-weight: bold;
+    font-style: italic;
 }
 
 #Gallery{
