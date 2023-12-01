@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../Styles/Boodstrap-grid.css">
+    <link rel="stylesheet" href="../Styles/Bootstrap-grid.css">
   <link rel="stylesheet" href="Styles/Stylesheet.css">
     <title>Homepage</title>
 </head>
@@ -32,18 +32,8 @@
     </Nav>
 </div>
 <div class="container-fluid">
-    <section class="row">
-        <aside class="col-3" id="Timeline">
-            <article class="row">
-                <h2>
-                    Timeline
-                </h2>
-            </article>
-            <article class="row">
-                <img src="Pictures/Timeline.png">
-            </article>
-        </aside>
-        <main class="col-7">
+    <main class="row">
+        <div class="col-9">
             <section class="row" id="Origin">
             <h2>
                 Origin
@@ -80,7 +70,7 @@
                 </h2>
                 <ol>
                     <li>
-                        <span>He was made out of a coat.</span>
+                        <span>Kermit was made out of a coat.</span>
                     </li>
                     <li>
                         <span>He wasn't originally a frog. In his early appearances on the locally broadcast TV show 'Sam and Friends,' Kermit was a creature of indeterminate species.</span>
@@ -102,8 +92,19 @@
                     </li>
                 </ol>
             </section>
-        </main>
-        <aside class= "col-2" id="Friends">
+            <div class="row" id="Timeline">
+                <article class="row">
+                    <h2>
+                        Timeline
+                    </h2>
+                </article>
+                <article class="row">
+                    <h3><img src="Pictures/Timeline.png" alt="Timeline"></h3>
+                </article>
+            </div>
+        </div>
+        <aside class= "col-3">
+            <div id="Friends">
             <article class="row">
                 <h2>
                     Friends
@@ -114,72 +115,73 @@
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Miss_Piggy">Miss Piggy</a>
                 </h3>
-                <img src="Pictures/MissPiggy.jpg">
+                <img src="Pictures/MissPiggy.jpg" alt="Miss_Piggy">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Fozzie_Bear">Fozzie Bear</a>
                 </h3>
-                <img src="Pictures/Fozzie_Bear.jpg">
+                <img src="Pictures/Fozzie_Bear.jpg" alt="Fozzie_Bear">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Gonzo_(Muppet)">Gonzo</a>
                 </h3>
-                <img src="Pictures/Gonzo.webp">
+                <img src="Pictures/Gonzo.webp" alt="Gonzo">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Rowlf_the_Dog">Rowlf The Dog</a>
                 </h3>
-                <img src="Pictures/Rowlf_the_Dog.jpg">
+                <img src="Pictures/Rowlf_the_Dog.jpg" alt="Rownlf_The-Dog">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Scooter_(Muppet)">Scooter</a>
                 </h3>
-                <img src="Pictures/Scooter.webp">
+                <img src="Pictures/Scooter.webp" alt="Scooter">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Pepe_the_King_Prawn">Pepe The King Prawn</a>
                 </h3>
-                <img src="Pictures/Pepe_The_King_Prawn.jpeg">
+                <img src="Pictures/Pepe_The_King_Prawn.jpeg" alt="Pepe_The_king_Prawn">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Rizzo_the_Rat">Rizzo The Rat</a>
                 </h3>
-                <img src="Pictures/Rizzo_The_Rat.webp">
+                <img src="Pictures/Rizzo_The_Rat.webp" alt="Rizzo_The_Rat">
             </article>
 
             <article class="row">
                 <h3>
                     <a href="https://en.wikipedia.org/wiki/Animal_(Muppet)">Animal</a>
                 </h3>
-                <img src="Pictures/Animal.jpg">
+                <img src="Pictures/Animal.jpg" alt="Animal">
             </article>
+            </div>
         </aside>
-    </section>
+    </main>
 </div>
-<div id="Photoshoot">
-    <h2>
+<div class="row" id="Photoshoot">
+    <h2 class="row-12">
         Photoshoot
     </h2>
-    <img src="Pictures/kermit-alcohol.jpg">
-    <img src="Pictures/kermit-on-drugs.webp">
-    <img src="Pictures/kermit-frog-hanging-pole.webp">
+    <img src="Pictures/kermit-alcohol.jpg" class="row" alt="Kermit_alcohol">
+    <img src="Pictures/kermit-on-drugs.webp" class="row" alt="Kermit_drugs">
+    <img src="Pictures/kermit-frog-hanging-pole.webp" class="row" alt="kermit_poledancing">
 </div>
 <figure id="JP">
-    <img src="Pictures/sticker-png-the-muppets-evil-kermit.png">
+    <img src="Pictures/sticker-png-the-muppets-evil-kermit.png" alt="Evil_kermit">
     <audio>
-        <embed name="Kermit" src="Pictures/Kermit.mp3" loop="false" autostart="false">
+        <embed id="Kermit" src="Pictures/Kermit.mp3" loop="false" autostart="true">
     </audio>
     <h5>
         Bow for me you pathetic human!
