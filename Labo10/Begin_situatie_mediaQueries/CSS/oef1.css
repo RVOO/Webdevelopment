@@ -1,0 +1,74 @@
+
+body {
+	font: 1.2em/1.2 Helvetica, aria, sans-serif;
+	margin: 0 3%;
+}
+
+h1 {
+	font-size: 1.8em;
+	margin: .9em 0 0 0;
+}
+h2 {
+	font-size: 1.5em;
+	margin: 1.5em 0 0 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+figure {
+	background: black;
+	border-radius: 5px;
+	color: red;
+	margin: 0 0 25px 0;
+	padding: 10px;
+	text-align: center;
+	
+}
+
+figcaption {
+	font-size: .8em;
+}
+
+
+@media  screen and (max-width: 767px){
+	body {
+		width: fit-content;
+	}
+}
+@media  screen and (min-width: 768px) and (max-width: 992px){
+	body {
+		background-color: cornflowerblue;
+		Display: block;
+	}
+	figure:nth-of-type(odd) {
+		Display: inline-block;
+		float: left;
+		width: calc(50% - 25px);
+	}
+	figure:nth-of-type(even) {
+		Display: inline-block;
+		float: right;
+		width: calc(50% - 25px);
+	}
+	img{
+		width: 50%;
+		height: auto;
+	}
+}
+@media  screen and (min-width: 992px){
+	body {
+		background-color: lightgreen;
+	}
+	figure{
+		float: none;
+		width: calc(33% - 30px);
+		display: inline-block;
+		margin: 5px;
+	}
+	img{
+		width: 75%;
+		height: auto;
+	}
+}

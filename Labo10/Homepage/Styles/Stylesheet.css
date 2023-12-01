@@ -1,0 +1,143 @@
+body{
+    width: 95%;
+    margin: 10px auto auto auto;
+    background-color: darkgreen;
+    animation-name: JP2;
+    animation-delay: 60s;
+    animation-duration: 5s;
+}
+#header{
+border: lightgreen dashed 3px;
+    border-radius: 20% 20% 3% 3%;
+}
+#header header{
+    background-image: url("../Pictures/kermit-wanted.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 422px;
+    border-radius: 45%;
+    border: solid black 2px;
+    color: white;
+    margin: auto auto 20px auto;
+}
+#header header section h1, #header header section h3, h5{
+    text-align: center;
+    margin: auto;
+    font-family: "Times New Roman", "Franklin Gothic Demi", sans-serif;
+    text-decoration: underline;
+    font-style: italic;
+}
+h5{
+    color: darkred;
+    font-style: oblique;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: Chiller, sans-serif;
+    text-decoration: overline;
+    font-size: 17px;
+}
+#header section h1{
+    font-size: 300%;
+}
+
+Nav{
+    text-align: center;
+}
+Nav a{
+    text-decoration: none;
+    color: black;
+    background-color: #007e7e;
+    border-radius: 90%;
+}
+#Timeline{
+    text-align: center;
+    background-color: white;
+    border: black solid 2px;
+    border-radius: 7%;
+}
+#Origin{
+    border: black solid 2px;
+    border-radius: 7%;
+    margin: 20px 10px 10px 10px;
+}
+h2{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: Algerian, sans-serif;
+}
+span{
+    margin: 15px;
+    font-style: italic;
+    font-family: Bahnschrift, sans-serif;
+}
+#Fun-facts{
+    border: 2px solid black;
+    border-radius: 7%;
+    background-color: #007e7e;
+}
+#Fun-facts ol li span{
+    font-weight: bolder;
+    font-size: 100%;
+}
+#Fun-facts ol li{
+    margin: 5px;
+}
+figure#JP{
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    animation-delay: 60s;
+    animation-duration: 5s;
+    animation-name: JP;
+    text-align: center;
+    font-size: 2em;
+}
+#Friends{
+    border: 2px solid black;
+    background-color: greenyellow;
+    border-radius: 15%;
+    padding: 25px;
+    text-align: center;
+}
+#Friends article img{
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+#Photoshoot{
+    text-align: center;
+}
+
+@keyframes JP {
+    0%{
+        visibility: hidden;
+    }
+    1%{
+        visibility: visible;
+    }
+    99%{
+        visibility: visible;
+    }
+    100%{
+        visibility: hidden;
+    }
+}
+@keyframes JP2{
+    0%{
+        background-color: darkgreen;
+    }
+    1%{
+        background-color: darkslategray;
+    }
+    99%{
+        background-color: darkslategray;
+    }
+    100%{
+        background-color: darkgreen;
+    }
+}
