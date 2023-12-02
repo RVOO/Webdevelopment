@@ -4,9 +4,11 @@ body{
 }
 div.row div:nth-of-type(odd){
     background-color: lightgrey;
+    color: lightgrey;
 }
 div.row div:nth-of-type(even){
     background-color: grey;
+    color: grey;
 }
 div.row div{
     height: 200px;
