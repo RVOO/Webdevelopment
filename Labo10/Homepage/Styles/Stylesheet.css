@@ -1,6 +1,21 @@
+@media only screen and (max-width: 768px){
+    #Friends{
+        margin: 20px 0 0 0;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    aside{
+        padding: 0;
+        margin: 0;
+    }
+    .col-1{
+        width: 0;
+    }
+}
+
 body{
     width: 95%;
-    margin: 10px auto auto auto;
+    margin: 10px auto auto 0;
     background-color: darkgreen;
     animation-name: JP2;
     animation-delay: 60s;
@@ -50,6 +65,7 @@ Nav a{
     background-color: #007e7e;
     border-radius: 90%;
 }
+
 #Timeline{
     text-align: center;
     background-color: white;
@@ -65,7 +81,7 @@ Nav a{
 #Origin{
     border: black solid 2px;
     border-radius: 7%;
-    margin: 20px 10px 10px 10px;
+    margin: 20px 10px 10px 0;
 }
 h2{
     text-align: center;
@@ -112,8 +128,10 @@ figure#JP{
     padding: 25px 25px 70px 25px;
     text-align: center;
     height: fit-content;
-    margin-top: 20px;
+    margin: 20px auto auto auto;
+    width: min-content;
 }
+
 #Friends article img{
     margin-bottom: 20px;
     margin-top: -10px;
