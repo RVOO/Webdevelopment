@@ -1,0 +1,13 @@
+.container{
+    background-color: cornflowerblue;
+    display: grid;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    grid-template-columns: auto auto auto;
+}
+
+.container .block{
+    margin:50px;
+    padding:50px;
+    background-color: white;
+}
