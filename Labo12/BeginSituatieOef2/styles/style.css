@@ -41,6 +41,7 @@ section a{
     text-align: center;
     color: grey;
     text-decoration: none;
+    margin: 10px;
 }
 nav a{
     margin: 0 5px;
