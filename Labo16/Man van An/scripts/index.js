@@ -4,10 +4,11 @@ const setup = () => {
 }
 const checkForAn = () =>{
     const text = "De man van An geeft geen hand aan ambetante verwanten.".toLowerCase();
+    console.log(text);
     let count = -1;
     for(let last = 0; last !== -1; count++){
         last = text.indexOf("an", last + 1);
     }
-    console.log(count);
+    console.log(count + " keer an in tekst.");
 }
 window.addEventListener("load", setup);

@@ -11,5 +11,7 @@ const maakMetSpaties = () =>{
         }
     }
     console.log(returnValue);
+    let output = document.getElementById("output");
+    output.innerHTML = returnValue;
 }
 window.addEventListener("load", setup);
