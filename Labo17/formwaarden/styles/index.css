@@ -1,0 +1,11 @@
+label{
+    display: block;
+    margin: 6px;
+}
+body{
+    width: fit-content;
+    border: solid black 2px;
+}
+button{
+    margin: 10px;
+}
