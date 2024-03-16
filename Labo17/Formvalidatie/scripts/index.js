@@ -122,6 +122,9 @@ const validMailadress = (email) =>{
         else if(email[i] === "."){
             dot = true;
         }
+        else if(email[i] === " "){
+            return false;
+        }
         else if(dot){
             domain += email[i];
         }
