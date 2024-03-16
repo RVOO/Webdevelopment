@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    flex-flow: nowrap column;
+    width: fit-content;
+}
+label{
+    margin: 5px;
+}
+span{
+    color: red;
+}
+.error{
+    border: red solid 2px;
+}
