@@ -119,19 +119,19 @@ const validMailadress = (email) =>{
         if(email[i] === "@"){
             atCount++;
         }
-        else if(email[i] === "."){
+        else if(atCount === 1 && email[i] === "."){
             dot = true;
         }
         else if(email[i] === " "){
             return false;
         }
-        else if(dot){
+        else if(dot && (isAlphNumb(email[i]) || isAllowedSymbolServer(email[i]))){
             domain += email[i];
         }
-        else if(atCount === 0){
+        else if(atCount === 0 && (isAlphNumb(email[i]) || isAllowedSymbolId(email[i]))){
             id += email[i];
         }
-        else if(atCount === 1){
+        else if(atCount === 1 && (isAlphNumb(email[i]) || isAllowedSymbolServer(email[i]))){
             server += email[i];
         }
 
@@ -140,4 +140,13 @@ const validMailadress = (email) =>{
 
 }
 
+const isAlphNumb = (c) =>{
+    return c.length === 1 && (c.match(/[a-z]|[A-Z]/));
+}
+const isAllowedSymbolServer = (c) =>{
+    return c.length === 1 && (c.match(/[0-9]|-/));
+}
+const isAllowedSymbolId = (c) =>{
+    return c.length === 1 && (c.match(/[0-9]|-|_/));
+}
 window.addEventListener("load", setup);
