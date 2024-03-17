@@ -133,6 +133,8 @@ const validMailadress = (email) =>{
         }
         else if(atCount === 1 && (isAlphNumb(email[i]) || isAllowedSymbolServer(email[i]))){
             server += email[i];
+        }else{
+            return false;
         }
 
     }
