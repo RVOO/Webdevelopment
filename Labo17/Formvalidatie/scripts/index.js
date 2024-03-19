@@ -5,8 +5,8 @@ const setup = () => {
 
 const validate = () =>{
     let veldenErrors = [];
-    let labelSpans = document.getElementsByTagName("span");
-    let inputs = document.getElementsByTagName("input");
+    let labelSpans = document.getElementsByName("span");
+    let inputs = document.getElementsByName("input");
 
     for(let i = 0; i<labelSpans.length; i++){
         labelSpans[i].innerHTML = "";
@@ -33,7 +33,7 @@ const validate = () =>{
     if(geboortedatum.length === 0){
         veldenErrors[2] = "verplicht veld";
     }
-    else if(!isValideDate(geboortedatum)){
+    else if(!isValidDate(geboortedatum)){
         veldenErrors[2] ="formaat is niet jjjj-mm-dd of geldige data";
     }
 
@@ -67,7 +67,7 @@ const validate = () =>{
         window.alert("proficiat!");
     }
 }
-const isValideDate = (date) =>{
+const isValidDate = (date) =>{
     let year = "";
     let month = "";
     let day = "";
