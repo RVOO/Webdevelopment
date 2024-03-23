@@ -6,7 +6,7 @@ for(let i = 0; i<listItems.length; i++){
 
 const body = document.querySelector('body');
 const img = document.createElement("img");
-img.setAttribute('src', "../me.jpeg");
+img.setAttribute('src', "me.jpeg");
 body.appendChild(img);
 }
 
