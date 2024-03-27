@@ -7,6 +7,9 @@ const setup = () => {
     red.addEventListener("change", update);
     green.addEventListener("change", update);
     blue.addEventListener("change", update);
+    red.addEventListener("input", update);
+    green.addEventListener("input", update);
+    blue.addEventListener("input", update);
     btn.addEventListener("click", save);
     btn.addEventListener("click", update);
 }
