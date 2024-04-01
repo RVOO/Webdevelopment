@@ -1,9 +1,33 @@
-#playField{
 
-    // aanvullen met hoogte en breedte
+#playField{
+    height: 800px;
+    width: 600px;
+    border: solid black 1px;
+}
+.target {
+    position: absolute;
 }
 
+.hidden{
+    visibility: hidden;
+}
 
-#target {
+.Counter{
+    position: fixed;
+    color: black;
+    opacity: 0.33;
+}
+
+#score{
+    font-weight: bold;
+    font-size: large;
+    margin: auto;
+    text-align: center;
+}
+
+#startBtn{
     position: absolute;
+    font-size: large;
+    margin: auto;
+    left: 275px
 }

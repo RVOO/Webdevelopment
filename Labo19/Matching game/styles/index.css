@@ -1,0 +1,135 @@
+.hidden{
+    visibility: hidden;
+    position: absolute;
+}
+body > footer{
+    position: fixed;
+    bottom: 10px;
+    width: 90%;
+    text-align: center;
+    left: 5%;
+    right: 5%;
+    background: #7d8dc2;
+    color: black;
+    opacity: 70%;
+}
+body{
+    background-image: url("../images/backgroundPage.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+/*Begin of game*/
+#Beginning{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#Beginning > header{
+    background: darkred;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    border: solid #7b0000 3px;
+    opacity: 80%;
+}
+#Beginning > header > h1{
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 3em;
+}
+#Beginning > header > h6{
+   padding-bottom: 0;
+}
+#amountOfCards{
+    width: 10%;
+    background: black;
+    color: white;
+}
+#Beginning > label{
+    color: red;
+    font-weight: bold;
+    font-family: "Times New Roman", "Franklin Gothic Demi", sans-serif;
+    opacity: 80%;
+}
+#lblStartBtn{
+    width: 100%;
+    margin: 10px;
+    color: black;
+}
+#lblStartBtn > input{
+    font-size: 2em;
+    border-radius: 25%;
+}
+#Beginning > h2{
+    width: 100%;
+    text-decoration: underline;
+    font-size: 1.75em;
+    margin-bottom: 0;
+}
+#Subjects{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.inputSubject{
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.subjectInput{
+    text-align: center;
+    font-size: 1em;
+    border-radius: 10%;
+    width: 30%
+}
+
+/*Gameplay*/
+.card{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+.found{
+    opacity: 20%;
+}
+#PlayField{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-evenly;
+}
+#Game{
+    display: flex;
+    flex-flow: row wrap;
+}
+#Game > header{
+    text-align: center;
+    width: 100%;
+    background: darkblue;
+    opacity: 80%;
+}
+
+/*Ending*/
+#Ending{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+}
+#Ending > header{
+    font-size: 2em;
+    width: 100%;
+}
+#Ending > p{
+    width: 100%;
+}
+#restart{
+    font-size: 2em;
+    border-radius: 25%;
+}
