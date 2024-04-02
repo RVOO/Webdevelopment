@@ -6,27 +6,32 @@ let global = {
     POSSIBLE_SUBJECTS : [
         "Penguins",
         "Groot",
-        "Seals"
+        "Seals",
+        "Coding"
     ],
     PHOTOS_PER_POSSIBLE_SUBJECT : [
         6,
         7,
-        6
+        6,
+        12
     ],
     subject: [],
     PIC_PATH : "images/",
     PIC_TYPE: ".jpg",
     BACKGROUND_PATH : "images/background.jpg",
     AMOUNT_TO_MATCH : 2,
-    tries : 0
+    tries : 0,
+    sounds : true
 }
 
 const setup = () => {
     addSubjectChooser();
     const playBtn = document.getElementById("startBtn");
     playBtn.addEventListener("click", play);
-    const restartBtn = document.getElementById("restart");
-    restartBtn.addEventListener("click", restart);
+    const restartBtns = document.getElementsByClassName("restart");
+    for(let i = 0; i<restartBtns.length; i++){
+        restartBtns[i].addEventListener("click", restart);
+    }
     const inputs = document.getElementsByClassName("subjectInput");
     for(let i = 0; i<inputs.length; i++){
         subjectCheck(inputs[i])
@@ -35,6 +40,25 @@ const setup = () => {
     updateAmount();
     amountOfCards.addEventListener("click", updateAmount);
     amountOfCards.addEventListener("input", updateAmount);
+    hideExtraMenu();
+
+    const sounds = document.getElementById("sounds");
+    sounds.addEventListener("click", function () {global.sounds = !global.sounds});
+}
+
+const revealExtraMenu = () =>{
+    const img = document.getElementById("extra_menu_button");
+    const extraMenu = document.getElementById("extra_menu");
+    extraMenu.classList.remove("hidden");
+    img.addEventListener("click", hideExtraMenu);
+    img.removeEventListener("click", revealExtraMenu);
+}
+const hideExtraMenu = () =>{
+    const img = document.getElementById("extra_menu_button");
+    const extraMenu = document.getElementById("extra_menu");
+    extraMenu.classList.add("hidden");
+    img.addEventListener("click", revealExtraMenu);
+    img.removeEventListener("click", hideExtraMenu);
 }
 
 const updateAmount = () =>{
@@ -135,8 +159,11 @@ const turn = (event) =>{
         let img = event.currentTarget;
         img.setAttribute("src", img.getAttribute("Data-pic"));
         img.classList.add("turned");
-        let audio = new Audio("sounds/Card_Flip.mp3");
-        audio.play();
+        if(global.sounds === true)
+        {
+            let audio = new Audio("sounds/Card_Flip.mp3");
+            audio.play();
+        }
     }
 }
 
@@ -154,8 +181,11 @@ const update = () =>{
             }
         }
         if(match === true){
-            let audio = new Audio("sounds/Ding_Correct.mp3");
-            audio.play();
+            if(global.sounds === true)
+            {
+                let audio = new Audio("sounds/Ding_Correct.mp3");
+                audio.play();
+            }
             for(let i = 0; i<length; i++){
                 turned[0].classList.add("found");
                 turned[0].removeEventListener("click", turn);
@@ -164,8 +194,12 @@ const update = () =>{
             }
 
         }else{
-            let audio = new Audio("sounds/Sad_Trombone.mp3");
-            audio.play();
+            if(global.sounds === true)
+            {
+                let audio = new Audio("sounds/Sad_Trombone.mp3");
+                audio.volume = 0.5;
+                audio.play();
+            }
             setTimeout(turnBack, 500);
         }
     }
@@ -213,6 +247,7 @@ const endGame = () =>{
 }
 
 const restart = () =>{
+    endGame();
     global.tries = 0;
     const tries = document.getElementById("triesH");
     tries.innerText = global.tries;

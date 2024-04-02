@@ -13,7 +13,7 @@
 		<h6>By RVO for task webdevelopment 2</h6>
 	</header>
 	<label for="amountOfCards"> Amount of equal cards:
-		<input type="number" min="0" value="2" id="amountOfCards">
+		<input type="number" min="2" value="2" id="amountOfCards">
 	</label>
 	<label for="startBtn" id="lblStartBtn">
 		<input type="button" value="Play Game" id="startBtn">
@@ -29,6 +29,9 @@
 		<h3>Tries: <span id="triesH"></span></h3>
 	</header>
 	<div id="PlayField"></div>
+	<label>
+	<input type="button" value="Play Again" class="restart">
+	</label>
 </div>
 <div id="Ending" class="hidden">
 	<header>
@@ -38,10 +41,17 @@
 		You've tried to guess: <span id="tries"></span> times
 	</p>
 
-	<label for="restart">
-		<input type="button" value="Play Again" id="restart">
+	<label>
+		<input type="button" value="Back" class="restart">
 	</label>
 </div>
+<img src="images/gear.webp" alt="extra_settings" id="extra_menu_button" width="40" height="40">
+<div id="extra_menu" class="hidden">
+	<label for="sounds">Sounds:
+		<input type="checkbox" id="sounds">
+	</label>
+</div>
+
 	<footer>
 		<a href="../../index.html">Terug naar index.</a>
 	</footer>

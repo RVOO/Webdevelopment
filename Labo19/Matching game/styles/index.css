@@ -86,7 +86,20 @@ body{
     border-radius: 10%;
     width: 30%
 }
-
+#extra_menu_button{
+    position: absolute;
+    top: 30%;
+    left: 20px;
+}
+#extra_menu{
+    position: absolute;
+    top: 40%;
+    left: 10px;
+    background: grey;
+    padding: 20px;
+    border-radius: 10%;
+    opacity: 80%;
+}
 /*Gameplay*/
 .card{
     width: 150px;
@@ -110,6 +123,16 @@ body{
     width: 100%;
     background: darkblue;
     opacity: 80%;
+    color: white;
+}
+#Game > label{
+    width: 100%;
+    text-align: center;
+    opacity: 80%;
+}
+#Game > label > input{
+    background: darkblue;
+    font-weight: bold;
 }
 
 /*Ending*/
@@ -129,7 +152,7 @@ body{
 #Ending > p{
     width: 100%;
 }
-#restart{
+.restart{
     font-size: 2em;
     border-radius: 25%;
 }
