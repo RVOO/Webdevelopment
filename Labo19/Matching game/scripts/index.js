@@ -81,7 +81,7 @@ const addSubjectChooser = () =>{
         input.setAttribute("name", `Cardcount of ${subjects[i]}`);
         input.setAttribute("max", `${cardCount[i]}`);
         input.setAttribute("min", "0");
-        input.setAttribute("value", `${cardCount[i]/2}`);
+        input.setAttribute("value", `${Math.floor(cardCount[i]/2)}`);
         label.classList.add("inputSubject");
         input.classList.add("subjectInput");
         input.addEventListener("click", subjectUpdate);
@@ -197,7 +197,7 @@ const update = () =>{
             if(global.sounds === true)
             {
                 let audio = new Audio("sounds/Sad_Trombone.mp3");
-                audio.volume = 0.5;
+                audio.volume = 0.3;
                 audio.play();
             }
             setTimeout(turnBack, 500);
