@@ -2,8 +2,9 @@ let global = {
     AANTAL_HORIZONTAAL : 4,
     AANTAL_VERTICAAL : 3,
     aantalPhotos : [],
-    TOTAL_AMOUNT_OF_CARDS : 0,
-    POSSIBLE_SUBJECTS : [
+    aantalSounds : [],
+    TOTAL_AMOUNT : 0,
+    POSSIBLE_SUBJECTS_PIC : [
         "Penguins",
         "Groot",
         "Seals",
@@ -13,15 +14,35 @@ let global = {
         6,
         7,
         6,
-        12
+        6
     ],
-    subject: [],
+    POSSIBLE_SUBJECTS_SOUND : [
+        "Birds",
+        "Crickets",
+        "Ambiance"
+    ],
+    AMOUNT_PER_POSSIBLE_SOUND : [
+        8,
+        4,
+        8
+    ],
+    subjectPictures: [],
+    subjectSounds : [],
     PIC_PATH : "images/",
     PIC_TYPE: ".jpg",
+    SOUND_PATH : "sounds/",
+    SOUNDS_TYPE : ".wav",
     BACKGROUND_PATH : "images/background.jpg",
     AMOUNT_TO_MATCH : 2,
     tries : 0,
-    sounds : true
+    sounds : true,
+    soundGame : false,
+    maxCardsPerLine : 8,
+    marginRatio : 0.05
+}
+let cardRatio = {
+    width : 1, /*Note: It would be wise to keep this 1 at all cost, for easier debugging*/
+    height : 1
 }
 
 const setup = () => {
@@ -32,10 +53,11 @@ const setup = () => {
     for(let i = 0; i<restartBtns.length; i++){
         restartBtns[i].addEventListener("click", restart);
     }
-    const inputs = document.getElementsByClassName("subjectInput");
-    for(let i = 0; i<inputs.length; i++){
-        subjectCheck(inputs[i])
+    const inputsPictures = document.getElementsByClassName("subjectInputPictures");
+    for(let i = 0; i<inputsPictures.length; i++){
+        subjectCheck(inputsPictures[i])
     }
+
     const amountOfCards = document.getElementById("amountOfCards");
     updateAmount();
     amountOfCards.addEventListener("click", updateAmount);
@@ -44,6 +66,27 @@ const setup = () => {
 
     const sounds = document.getElementById("sounds");
     sounds.addEventListener("click", function () {global.sounds = !global.sounds});
+    const soundsGame = document.getElementById("soundsGame");
+    soundsGame.addEventListener("click", function () {global.soundGame = !global.soundGame});
+    soundsGame.addEventListener("click", toggleGames);
+}
+
+const toggleGames = () =>{
+    const pictures = document.getElementById("SubjectsPictures");
+    const sounds = document.getElementById("SubjectsSounds");
+    pictures.classList.toggle("hidden");
+    sounds.classList.toggle("hidden");
+    if(global.soundGame){
+        const inputsSounds = document.getElementsByClassName("subjectInputSounds");
+        for(let i = 0; i<inputsSounds.length; i++){
+            subjectCheck(inputsSounds[i])
+        }
+    }else{
+        const inputsPictures = document.getElementsByClassName("subjectInputPictures");
+        for(let i = 0; i<inputsPictures.length; i++){
+            subjectCheck(inputsPictures[i])
+        }
+    }
 }
 
 const revealExtraMenu = () =>{
@@ -67,8 +110,8 @@ const updateAmount = () =>{
 }
 
 const addSubjectChooser = () =>{
-    const parent = document.getElementById("Subjects");
-    let subjects = clearNullsList(global.POSSIBLE_SUBJECTS);
+    const parent = document.getElementById("SubjectsPictures");
+    let subjects = clearNullsList(global.POSSIBLE_SUBJECTS_PIC);
     let cardCount = clearNullsList(global.PHOTOS_PER_POSSIBLE_SUBJECT);
     for(let i = 0; i<subjects.length; i++){
         let label = document.createElement("label");
@@ -82,12 +125,34 @@ const addSubjectChooser = () =>{
         input.setAttribute("max", `${cardCount[i]}`);
         input.setAttribute("min", "0");
         input.setAttribute("value", `${Math.floor(cardCount[i]/2)}`);
-        label.classList.add("inputSubject");
-        input.classList.add("subjectInput");
+        label.classList.add("inputSubjectPictures");
+        input.classList.add("subjectInputPictures");
         input.addEventListener("click", subjectUpdate);
         input.addEventListener("input", subjectUpdate);
         parent.appendChild(label);
         parent.appendChild(input);
+    }
+    const parentSound = document.getElementById("SubjectsSounds");
+    let subjectsSound = clearNullsList(global.POSSIBLE_SUBJECTS_SOUND);
+    let soundCount = clearNullsList(global.AMOUNT_PER_POSSIBLE_SOUND);
+    for(let i = 0; i<subjectsSound.length; i++){
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        label.innerHTML = `${subjectsSound[i]}:`;
+        label.setAttribute("for", `${subjectsSound[i]}`);
+        input.setAttribute("Data-subject", `${subjectsSound[i]}`);
+        input.setAttribute("type", "number");
+        input.setAttribute("id", `${subjectsSound[i]}`);
+        input.setAttribute("name", `Cardcount of ${subjectsSound[i]}`);
+        input.setAttribute("max", `${soundCount[i]}`);
+        input.setAttribute("min", "0");
+        input.setAttribute("value", `${Math.floor(soundCount[i]/2)}`);
+        label.classList.add("inputSubjectSounds");
+        input.classList.add("subjectInputSounds");
+        input.addEventListener("click", subjectUpdate);
+        input.addEventListener("input", subjectUpdate);
+        parentSound.appendChild(label);
+        parentSound.appendChild(input);
     }
 }
 
@@ -96,70 +161,114 @@ const subjectUpdate = (event)=>{
     subjectCheck(input);
 }
 const subjectCheck = (input) =>{
-    if(input.value === "0" || input.value === null){
-        let index = global.subject.indexOf(input.getAttribute("Data-subject"));
-        global.subject[index] = null;
-        global.aantalPhotos[index] = null;
-    }
-    else if(global.subject.indexOf(input.getAttribute("Data-subject")) === -1) {
-        global.subject.push(input.getAttribute("Data-subject"));
-        global.aantalPhotos.push(input.value);
+    if(!global.soundGame) {
+        if (input.value === "0" || input.value === null) {
+            let index = global.subjectPictures.indexOf(input.getAttribute("Data-subject"));
+            global.subjectPictures[index] = null;
+            global.aantalPhotos[index] = null;
+        } else if (global.subjectPictures.indexOf(input.getAttribute("Data-subject")) === -1) {
+            global.subjectPictures.push(input.getAttribute("Data-subject"));
+            global.aantalPhotos.push(input.value);
+        } else {
+            global.aantalPhotos[global.subjectPictures.indexOf(input.getAttribute("Data-subject"))] = input.value;
+        }
     }else{
-        global.aantalPhotos[global.subject.indexOf(input.getAttribute("Data-subject"))] = input.value;
+        if (input.value === "0" || input.value === null) {
+            let index = global.subjectSounds.indexOf(input.getAttribute("Data-subject"));
+            global.subjectSounds[index] = null;
+            global.aantalSounds[index] = null;
+        } else if (global.subjectSounds.indexOf(input.getAttribute("Data-subject")) === -1) {
+            global.subjectSounds.push(input.getAttribute("Data-subject"));
+            global.aantalSounds.push(input.value);
+        } else {
+            global.aantalSounds[global.subjectSounds.indexOf(input.getAttribute("Data-subject"))] = input.value;
+        }
     }
 }
 
 const play = () =>{
-    if(clearNullsList(global.aantalPhotos).length !== 0) {
-        const begin = document.getElementById("Beginning");
-        begin.classList.add("hidden");
-        createCards();
-        const gameField = document.getElementById("Game");
-        gameField.classList.remove("hidden");
-        amountOfCards();
+    if(!global.soundGame) {
+        if (clearNullsList(global.aantalPhotos).length !== 0) {
+            const begin = document.getElementById("Beginning");
+            begin.classList.add("hidden");
+            createCards();
+            const gameField = document.getElementById("Game");
+            gameField.classList.remove("hidden");
+            amountOfCards();
+        } else {
+            window.alert("No subject chosen");
+        }
     }else{
-        window.alert("No subject chosen");
+        if (clearNullsList(global.aantalSounds).length !== 0) {
+            const begin = document.getElementById("Beginning");
+            begin.classList.add("hidden");
+            createCards();
+            const gameField = document.getElementById("Game");
+            gameField.classList.remove("hidden");
+            amountOfCards();
+        } else {
+            window.alert("No subject chosen");
+        }
     }
 }
 
 const createListCardPaths = () =>{
-    const pics = [];
+    const List = [];
     for(let i = 0; i< global.AMOUNT_TO_MATCH; i++) {
-        for (let i = 0; i < global.aantalPhotos.length; i++) {
-            let amount = global.aantalPhotos[i];
-            let subject = global.subject[i];
-            for (let ind = 0; ind < amount; ind++) {
-                pics.push(`${global.PIC_PATH}${subject}_${ind}${global.PIC_TYPE}`);
+        if(!global.soundGame) {
+            for (let i = 0; i < global.aantalPhotos.length; i++) {
+                let amount = global.aantalPhotos[i];
+                let subject = global.subjectPictures[i];
+                for (let ind = 0; ind < amount; ind++) {
+                    List.push(`${global.PIC_PATH}${subject}_${ind}${global.PIC_TYPE}`);
+                }
+            }
+        }else{
+            for (let i = 0; i < global.aantalSounds.length; i++) {
+                let amount = global.aantalSounds[i];
+                let subject = global.subjectSounds[i];
+                for (let ind = 0; ind < amount; ind++) {
+                    List.push(`${global.SOUND_PATH}${subject}_${ind}${global.SOUNDS_TYPE}`);
+                }
             }
         }
     }
-    return pics;
+    return List;
 }
 
 const createCards = () =>{
     const playField = document.getElementById("PlayField");
-    let pics = createListCardPaths();
-    while(pics.length > 0) {
+    let data = createListCardPaths();
+    while(data.length > 0) {
         const img = document.createElement("img");
         img.classList.add("card");
         img.setAttribute("src", global.BACKGROUND_PATH);
-        let random = Math.floor(Math.random()*pics.length);
-        img.setAttribute("Data-pic", pics[random]);
-        pics[random] = null;
-        pics = clearNullsList(pics);
+        let random = Math.floor(Math.random()*data.length);
+        img.setAttribute("Data-other", data[random]);
+        data[random] = null;
+        data = clearNullsList(data);
         img.addEventListener("click", turn);
         img.addEventListener("click", update);
         playField.appendChild(img);
     }
+    algorithm(document.getElementsByClassName("card"), playField);
 }
 
 const turn = (event) =>{
-    let amountTurned = document.getElementsByClassName("turned").length;
+    let turned = document.getElementsByClassName("turned");
+    let amountTurned = turned.length;
     if(amountTurned < global.AMOUNT_TO_MATCH) {
         let img = event.currentTarget;
-        img.setAttribute("src", img.getAttribute("Data-pic"));
-        img.classList.add("turned");
-        if(global.sounds === true)
+        if(!global.soundGame) {
+            img.setAttribute("src", img.getAttribute("Data-other"));
+            img.classList.add("turned");
+        }else{
+            let audio = new Audio(`${img.getAttribute("Data-other")}`)
+            audio.play();
+            img.classList.add("turned");
+            setTimeout(function(){audio.pause()}, 5000);
+        }
+        if(global.sounds === true && global.soundGame === false)
         {
             let audio = new Audio("sounds/Card_Flip.mp3");
             audio.play();
@@ -176,12 +285,12 @@ const update = () =>{
         tries.innerText = global.tries;
         let match = true;
         for(let i = 0; i<length && match === true; i++){
-            if(turned[i].getAttribute("src") !== turned[0].getAttribute("src")){
+            if(turned[i].getAttribute("Data-other") !== turned[0].getAttribute("Data-other")){
                 match = false;
             }
         }
         if(match === true){
-            if(global.sounds === true)
+            if(global.sounds === true && global.soundGame === false)
             {
                 let audio = new Audio("sounds/Ding_Correct.mp3");
                 audio.play();
@@ -194,7 +303,7 @@ const update = () =>{
             }
 
         }else{
-            if(global.sounds === true)
+            if(global.sounds === true && global.soundGame === false)
             {
                 let audio = new Audio("sounds/Sad_Trombone.mp3");
                 audio.volume = 0.3;
@@ -205,17 +314,23 @@ const update = () =>{
     }
 
     const found = document.getElementsByClassName("found");
-    if(found.length === global.TOTAL_AMOUNT_OF_CARDS){
+    if(found.length === global.TOTAL_AMOUNT){
         endGame();
     }
 }
 
 const amountOfCards = () =>{
     let amount = 0;
-    for(let i = 0; i<global.aantalPhotos.length; i++){
-        amount += Number(global.aantalPhotos[i]*global.AMOUNT_TO_MATCH);
+    if(!global.soundGame) {
+        for (let i = 0; i < global.aantalPhotos.length; i++) {
+            amount += Number(global.aantalPhotos[i] * global.AMOUNT_TO_MATCH);
+        }
+    }else{
+        for (let i = 0; i < global.aantalSounds.length; i++) {
+            amount += Number(global.aantalSounds[i] * global.AMOUNT_TO_MATCH);
+        }
     }
-    global.TOTAL_AMOUNT_OF_CARDS = amount;
+    global.TOTAL_AMOUNT = amount;
 }
 
 const turnBack = () =>{
@@ -257,5 +372,51 @@ const restart = () =>{
     begin.classList.remove("hidden");
     const playField = document.getElementById("PlayField");
     playField.innerHTML = "";
+}
+
+
+const algorithm = (cards, field) =>{
+
+    const fieldWidth = (window.innerWidth - field.offsetLeft);
+    const amountOfcards = cards.length;
+
+    if(global.maxCardsPerLine !== null && global.maxCardsPerLine !== 0){
+        let cardsPerRow = null;
+        let valueForI = 2;
+        while(cardsPerRow === null || global.maxCardsPerLine < cardsPerRow || cardsPerRow === 0 || fieldWidth/cardsPerRow < 150){
+            let stop = false;
+            for (let i = valueForI; i <= amountOfcards && !stop; i++) {
+                if (amountOfcards % i === 0) {
+                    cardsPerRow = amountOfcards / i;
+                    valueForI = i;
+                    stop = !stop;
+                }
+            }
+            valueForI++;
+        }
+        let width = fieldWidth/cardsPerRow;
+        let margin;
+        if(width*global.marginRatio > 10){
+            margin = 5;
+        }else{
+            margin = width*global.marginRatio;
+        }
+         width = Math.floor(width*((1-(global.marginRatio*2))*cardRatio.width))*0.95;
+
+
+        /*Geimplementeerd aangezien het anders te groot is voor iets van overzicht te hebben*/
+        if(width > 300){
+            width = 150;
+        }
+
+
+        for(let i = 0; i<cards.length; i++){
+            cards[i].width = width;
+            cards[i].style.height = `${cards[i].width*cardRatio.height}px`;
+            cards[i].style.margin = `${margin}px`;
+        }
+    }else{
+        console.log("Not enough data");
+    }
 }
 window.addEventListener("load", setup);
