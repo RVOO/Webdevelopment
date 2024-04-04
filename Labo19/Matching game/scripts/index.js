@@ -195,6 +195,9 @@ const play = () =>{
             const gameField = document.getElementById("Game");
             gameField.classList.remove("hidden");
             amountOfCards();
+
+            const gameToggle = document.getElementById("Gametoggle");
+            gameToggle.classList.add("hidden");
         } else {
             window.alert("No subject chosen");
         }
@@ -206,6 +209,9 @@ const play = () =>{
             const gameField = document.getElementById("Game");
             gameField.classList.remove("hidden");
             amountOfCards();
+
+            const gameToggle = document.getElementById("Gametoggle");
+            gameToggle.classList.add("hidden");
         } else {
             window.alert("No subject chosen");
         }
@@ -372,6 +378,9 @@ const restart = () =>{
     begin.classList.remove("hidden");
     const playField = document.getElementById("PlayField");
     playField.innerHTML = "";
+
+    const gameToggle = document.getElementById("Gametoggle");
+    gameToggle.classList.remove("hidden");
 }
 
 
