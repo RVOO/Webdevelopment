@@ -1,24 +1,24 @@
 let personen = [
     {
-        txtVoornaam: 'Jan',
-        txtFamilienaam: 'Janssens',
-        txtGeboorteDatum: '2010-10-10',
-        txtEmail: 'jan@example.com',
-        txtAantalKinderen: 0
+        Voornaam: 'Jan',
+        Familienaam: 'Janssens',
+        GeboorteDatum: '2010-10-10',
+        Email: 'jan@example.com',
+        AantalKinderen: 0
     },
     {
-        txtVoornaam: 'Mieke',
-        txtFamilienaam: 'Mickelsen',
-        txtGeboorteDatum: '1980-01-01',
-        txtEmail: 'mieke@example.com',
-        txtAantalKinderen: 1
+        Voornaam: 'Mieke',
+        Familienaam: 'Mickelsen',
+        GeboorteDatum: '1980-01-01',
+        Email: 'mieke@example.com',
+        AantalKinderen: 1
     },
     {
-        txtVoornaam: 'Piet',
-        txtFamilienaam: 'Pieters',
-        txtGeboorteDatum: '1970-12-31',
-        txtEmail: 'piet@example.com',
-        txtAantalKinderen: 2
+        Voornaam: 'Piet',
+        Familienaam: 'Pieters',
+        GeboorteDatum: '1970-12-31',
+        Email: 'piet@example.com',
+        AantalKinderen: 2
     }
 ];
 
@@ -33,7 +33,7 @@ const bewaarBewerktePersoon = () => {
         const inputs = document.querySelectorAll("input");
         for (let i = 0; i < inputs.length; i++) {
             if (inputs[i].type !== "button") {
-                person[inputs[i].id] = inputs[i].value;
+                person[inputs[i].id.slice(3)] = inputs[i].value;
             }
         }
 
@@ -42,11 +42,11 @@ const bewaarBewerktePersoon = () => {
 
         if (index === -1) {
             personen.push(person);
-            let txt = person.txtVoornaam + " " + person.txtFamilienaam;
+            let txt = person.Voornaam + " " + person.Familienaam;
             lstpers.innerHTML += `<option>${txt}</option>`;
         } else {
             personen[index] = person;
-            let txt = person.txtVoornaam + " " + person.txtFamilienaam;
+            let txt = person.Voornaam + " " + person.Familienaam;
             lstpers.options[index].innerHTML = `${txt}`;
         }
     }
@@ -79,7 +79,7 @@ const showPerson = () =>{
 
     for(let i = 0; i < inputs.length; i++) {
         if(inputs[i].type !== "button") {
-            let id = inputs[i].id;
+            let id = inputs[i].id.slice(3);
             inputs[i].value = personen[index][`${id}`];
         }
     }
@@ -92,7 +92,7 @@ const setup = () => {
     const lstpers = document.querySelector("#lstPersonen");
     for(let i = 0; i < personen.length; i++) {
         let person = personen[i];
-        let txt = person.txtVoornaam + " " + person.txtFamilienaam;
+        let txt = person.Voornaam + " " + person.Familienaam;
         lstpers.innerHTML += `<option>${txt}</option>`;
     }
 
