@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head> 
+	<title>My Internet Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap-grid.css">
+</head> 
+
+<body>
+	<section class="container" id="header">
+		<header>
+			<h1>My Internet Start Page</h1>
+		</header>
+		<label for="search"><strong>Zoekopdracht</strong></label>
+		<input type="text" id="search" placeholder="Enter commando" class="col-12">
+		<label for="search" id="cmd-id">Start your commando with "/[character] [zoekopdracht]"</label>
+		<label for="search">
+		<input type="button" id="Go" class="col-12" value="GO!">
+		</label>
+	</section>
+	<section id="History" class="container">
+		<header>
+			<h1>History</h1>
+		</header>
+		<div id="Cards" class="row gy-2">
+
+		</div>
+	</section>
+	<img id="list" alt="list" src="images/list.svg" width="25" height="25">
+	<div id="listDiv" class="hidden"></div>
+	<footer>
+		<a href="../../index.html">Terug naar index.</a>
+	</footer>
+	<script src="scripts/index.js"></script>
+</body> 
+</html> 

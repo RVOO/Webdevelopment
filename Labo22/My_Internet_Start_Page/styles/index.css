@@ -1,0 +1,93 @@
+
+body{
+    margin: 0;
+}
+#header{
+    margin: 0 auto 3em auto;
+}
+#cmd-id{
+    font-size: 0.7em;
+}
+input{
+    height: 30px;
+    width: 100%;
+    border-radius: 0.2em;
+}
+#Go{
+    background-color: forestgreen;
+    color: white;
+    height: 2.8em;
+}
+#Go:hover, button:hover{
+    border: #3d8bb1 2px solid;
+    color: #3d8bb1;
+}
+
+.Youtube{
+    background-color: red;
+}
+.Youtube button{background-color: black}
+.Google{
+    background-color: cornflowerblue;
+}
+.Google button{background-color: orangered}
+.Instagram{
+    background-color: purple;
+}
+.Instagram button{background-color: orange}
+.Twitter{
+    background-color: blue;
+}
+.Twitter button{background-color: black}
+.Wikipedia{
+    background-color: grey;
+}
+.Wikipedia button{background-color: black}
+.Reddit{
+    background-color: orangered;
+}
+.Reddit button{background-color: black}
+.Twitch{
+    background-color: rebeccapurple;
+}
+.Twitch button{background-color: black}
+.card{
+    padding: 1em 0 1em 1em;
+    color: white;
+}
+button{color: white; border-radius: 0.2em; height: 2.5em;}
+
+#list{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#list:hover{
+    border: #3d8bb1 2px solid;
+    border-radius: 0.2em;
+    color: #3d8bb1;
+}
+.hidden{
+    display: none;
+}
+
+#listDiv{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: grey;
+    border: black 1px solid;
+    border-radius: 0.2em;
+    padding: 0 1em 0 1em;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #000;
+    padding: 5px 5px 5px 5px;
+    margin:0;
+    opacity: 80%;
+}
